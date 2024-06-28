@@ -1807,8 +1807,7 @@ function calculateReferralFee() {
     const gstAmount = (referralFeeValueAmount * 0.18).toFixed(2);
     const totalAmount = (
       parseFloat(referralFeeValueAmount) +
-      parseFloat(closingFeeAmount.replace("₹", "")) +
-      
+      parseFloat(closingFeeAmount.replace("₹", ""))
     ).toFixed(2);
 
     enteredPriceValue.textContent = `₹ ${enteredPrice}`;
