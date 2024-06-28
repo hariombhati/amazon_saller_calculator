@@ -1697,7 +1697,7 @@ const priceInput = document.getElementById("price");
 const enteredPriceValue = document.getElementById("enteredPriceValue");
 const referralFeeValue = document.getElementById("referralFeeValue");
 const closingFeeValue = document.getElementById("closingFeeValue");
-
+const gstValue = document.getElementById("gstValue");
 const totalValue = document.getElementById("totalValue");
 const totalfee = document.getElementById("totalfee");
 const referralFeepercentage = document.getElementById("referralFeepercentage");
@@ -1804,16 +1804,17 @@ function calculateReferralFee() {
       (enteredPrice * parseFloat(referralFeePercentage)) /
       100
     ).toFixed(2);
-
+    const gstAmount = (referralFeeValueAmount * 0.18).toFixed(2);
     const totalAmount = (
       parseFloat(referralFeeValueAmount) +
-      parseFloat(closingFeeAmount.replace("₹", ""))
+      parseFloat(closingFeeAmount.replace("₹", "")) +
+      
     ).toFixed(2);
 
     enteredPriceValue.textContent = `₹ ${enteredPrice}`;
     referralFeeValue.textContent = `₹ ${referralFeeValueAmount}`;
     closingFeeValue.textContent = closingFeeAmount;
-
+    gstValue.textContent = `₹ ${gstAmount}`;
     totalfee.textContent = `₹ ${totalAmount}`;
     totalValue.textContent = `₹ ${enteredPrice - totalAmount}`;
     referralFeepercentage.textContent = referralFeePercentage;
